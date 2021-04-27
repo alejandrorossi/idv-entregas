@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/1_small_weapon.png" type="Texture" id=3]
+[ext_resource path="res://entities/player/PlayerProjectile.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+onready var shoot_position = $FirePosition
+
+export (PackedScene) var projectile_scene:PackedScene
+
+var container:Node
+
+func shoot():
+	var new_projectile = projectile_scene.instance()
+	container.add_child(new_projectile)
+	new_projectile.initialize(
+		(shoot_position.global_position - global_position).normalized(),
+		 shoot_position.global_position)
+
+"
+
+[node name="Player" type="Sprite"]
+position = Vector2( 99.6934, 81.5086 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( -25.1925, -63.0361 )
+scale = Vector2( 2.25163, 2.35084 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -30, -18 )
+script = SubResource( 1 )
+projectile_scene = ExtResource( 5 )
+
+[node name="FirePosition" type="Position2D" parent="Gun"]
+position = Vector2( 49.8431, -16.9357 )

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/bullet_orange.png" type="Texture" id=2]
+
+[node name="Projectile" instance=ExtResource( 1 )]
+speed = 120.0
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -0.215259, -0.966629 )
+rotation = -1.55485
+scale = Vector2( 4.83422, 4.30106 )
+texture = ExtResource( 2 )
