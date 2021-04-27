@@ -7,6 +7,13 @@ var _player:Sprite
 onready var fire_position = $FirePosition
 onready var shoot_timer = $ShootTimer
 
+
+#tuve problemas regulando el angulo de las torretas para que apunte bien al jugador
+#disparos de torretas giran junto con la torreta :(
+#cambié los sprites porque estaba probando y jugando un poco con rotaciones y otros elementos de godot
+
+
+
 func initialize(player: Node): 
 	
 	_player = player
