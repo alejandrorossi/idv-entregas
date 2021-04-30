@@ -1,10 +1,11 @@
-extends Sprite
+extends KinematicBody2D
 
 onready var cannon = $Cannon
 
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 600.0
 export (float) var FRICTION_WEIGHT:float = 0.1
+export (float) var gravity:float = 10
 
 var velocity:Vector2 = Vector2.ZERO
 var projectile_container
@@ -35,3 +36,13 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
 	position += velocity * delta
+	
+#	velocity.y += gravity
+	move_and_slide(velocity * delta)
+	position.y += gravity
+#	position += velocity * delta
+
+
+
+func _ready():
+	add_to_group("player")
