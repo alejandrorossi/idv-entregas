@@ -37,7 +37,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
-	if Input.is_action_just_pressed("jump") && is_on_floor():
+	if Input.is_action_just_pressed("jump") :
 		velocity.y -= jump_speed
 	
 	velocity.y += GRAVITY * delta * ACCELERATION

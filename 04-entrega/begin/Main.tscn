@@ -28,25 +28,30 @@ color = Color( 1, 1, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 188.763, 444.316 )
-GRAVITY = 10.0
+ACCELERATION = 60.0
+GRAVITY = 5.0
 
 [node name="Floor" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1001.26, 570.212 )
 
 [node name="Floor3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 839.99, 526.115 )
+position = Vector2( 832.431, 526.115 )
 scale = Vector2( 10.8337, 3.34742 )
 
 [node name="Floor4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1023.94, 463.119 )
+position = Vector2( 1023.94, 451.78 )
 scale = Vector2( 10.8337, 3.34742 )
 
 [node name="Floor2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -88.7695, 665.966 )
 rotation = 1.5708
 
+[node name="Floor6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2063.18, 654.627 )
+rotation = 1.5708
+
 [node name="Floor5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1021.22, 1253.09 )
+position = Vector2( 939.325, 1229.15 )
 rotation = 1.5708
 
 [node name="Turret" parent="." instance=ExtResource( 4 )]
@@ -56,4 +61,4 @@ position = Vector2( 758.153, 63.4476 )
 position = Vector2( 1412.05, 437.644 )
 
 [node name="Ball" parent="." instance=ExtResource( 6 )]
-position = Vector2( 327.579, 183.948 )
+position = Vector2( 317.5, 151.19 )
