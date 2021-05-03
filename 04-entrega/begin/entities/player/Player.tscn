@@ -28,3 +28,8 @@ projectile_scene = ExtResource( 5 )
 
 [node name="CannonTip" type="Position2D" parent="Cannon"]
 position = Vector2( 15, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -33.2978, 37.1627 )
+offset = Vector2( 250, -195 )
+current = true

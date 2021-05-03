@@ -14,8 +14,10 @@ script = ExtResource( 3 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1200.0
-margin_bottom = 100.0
+margin_left = 2.51978
+margin_top = -23.9385
+margin_right = 1202.52
+margin_bottom = 76.0615
 texture = ExtResource( 2 )
 expand = true
 script = ExtResource( 7 )
@@ -25,13 +27,33 @@ __meta__ = {
 color = Color( 1, 1, 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 121.987, 472.034 )
+position = Vector2( 188.763, 444.316 )
 GRAVITY = 10.0
 
 [node name="Floor" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1001.26, 570.212 )
+
+[node name="Floor3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 839.99, 526.115 )
+scale = Vector2( 10.8337, 3.34742 )
+
+[node name="Floor4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1023.94, 463.119 )
+scale = Vector2( 10.8337, 3.34742 )
+
+[node name="Floor2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -88.7695, 665.966 )
+rotation = 1.5708
+
+[node name="Floor5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1021.22, 1253.09 )
+rotation = 1.5708
 
 [node name="Turret" parent="." instance=ExtResource( 4 )]
-position = Vector2( 774.532, 65.9674 )
+position = Vector2( 758.153, 63.4476 )
+
+[node name="Turret2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1412.05, 437.644 )
 
 [node name="Ball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 327.579, 183.948 )

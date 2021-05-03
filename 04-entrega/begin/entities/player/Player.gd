@@ -9,8 +9,8 @@ export (float) var GRAVITY:float = 100
 
 var velocity:Vector2 = Vector2.ZERO
 var projectile_container
-#var jump_speed:int = 500
-#var floorDirection:Vector2 = Vector2.UP# Igual a Vector2(0, -1)
+var jump_speed:int = 500
+var floorDirection:Vector2 = Vector2.UP# Igual a Vector2(0, -1)
 
 func initialize(projectile_container):
 	self.projectile_container = projectile_container
@@ -37,12 +37,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	
-#	position.y += GRAVITY
-#	position += velocity * delta
+	if Input.is_action_just_pressed("jump") && is_on_floor():
+		velocity.y -= jump_speed
 	
-	velocity.y+=GRAVITY
-	move_and_slide(velocity )
-	
+	velocity.y += GRAVITY * delta * ACCELERATION
+	move_and_slide(velocity * delta * ACCELERATION, floorDirection )
+
 	
 func notify_hit():
 	print("AAAAAAAAAAAAAAAAAAAAAAY")
