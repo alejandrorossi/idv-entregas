@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://entities/enemies/Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/enviroment/Floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/enviroment/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/enviroment/Background.gd" type="Script" id=7]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.51978
+margin_top = -23.9385
+margin_right = 1202.52
+margin_bottom = 76.0615
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+color = Color( 1, 1, 1, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 188.763, 444.316 )
+ACCELERATION = 60.0
+GRAVITY = 5.0
+
+[node name="Floor" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1001.26, 570.212 )
+
+[node name="Floor3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 832.431, 526.115 )
+scale = Vector2( 10.8337, 3.34742 )
+
+[node name="Floor4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1023.94, 451.78 )
+scale = Vector2( 10.8337, 3.34742 )
+
+[node name="Floor2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -88.7695, 665.966 )
+rotation = 1.5708
+
+[node name="Floor6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2063.18, 654.627 )
+rotation = 1.5708
+
+[node name="Floor5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 939.325, 1229.15 )
+rotation = 1.5708
+
+[node name="Turret" parent="." instance=ExtResource( 4 )]
+position = Vector2( 758.153, 63.4476 )
+
+[node name="Turret2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1412.05, 437.644 )
+
+[node name="Ball" parent="." instance=ExtResource( 6 )]
+position = Vector2( 317.5, 151.19 )

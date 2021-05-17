@@ -1,19 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/Projectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/proyectile_turret.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/enemies/hairball.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 9.14051
+[sub_resource type="Animation" id=1]
+resource_name = "shot"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0, 0, 0, 0, 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05, 0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 45.0, 90.0, 180.0, 225.0, 270.0, 315.0, 360.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
 
 [node name="TurretProjectile" instance=ExtResource( 1 )]
+rotation = 4.61658
+texture = ExtResource( 2 )
 VELOCITY = 400.0
 
-[node name="LifetimeTimer" parent="." index="0"]
+[node name="AnimationShot" type="AnimationPlayer" parent="." index="0"]
+anims/shot = SubResource( 1 )
+
+[node name="LifetimeTimer" parent="." index="1"]
 wait_time = 3.0
 
-[node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
+[node name="Hitbox" parent="." index="2"]
+collision_mask = 3
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
-texture = ExtResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 2 )
